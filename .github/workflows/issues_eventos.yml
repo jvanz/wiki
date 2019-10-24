@@ -1,0 +1,15 @@
+name: 'Verifica dados do evento criado'
+
+on: 
+  issues: 
+    types: [opened]
+
+jobs:
+  event_validation:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Validates the event data
+      id: validation
+      uses: HackerspaceBlumenau/event_validator@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
